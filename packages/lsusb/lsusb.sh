@@ -53,7 +53,7 @@ echo -e "${GREEN}Done!${NC}"
 
 # -- Install
 echo -e "${RED}>>>>>>>> ${NC}Installing $LSUSB${NC}"
-cp lsusb $HOME/usr/bin/lsusb
+mv lsusb $HOME/usr/bin/lsusb
 sleep 1
 echo -e "${GREEN}Done!${NC}"
 sleep 1
