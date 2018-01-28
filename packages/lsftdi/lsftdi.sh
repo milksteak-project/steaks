@@ -48,7 +48,7 @@ echo -e "${GREEN}Done!${NC}"
 
 # -- Install
 echo -e "${RED}>>>>>>>> ${NC}Installing $LSFTDI${NC}"
-cp lsftdi $HOME/usr/bin/lsftdi
+mv lsftdi $HOME/usr/bin/lsftdi
 sleep 1
 echo -e "${GREEN}Done!${NC}"
 sleep 1
