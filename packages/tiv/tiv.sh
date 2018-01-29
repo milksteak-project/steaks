@@ -69,7 +69,7 @@ sleep 1
 # -- Cleanup
 cd $DOWNLOAD_FOLDER
 rm $ZIP_TIV
-rm -rf $TIV
+rm -rf $TIV-master
 
 printf '\e[1;31m%*s\e[m' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
 echo -e "${NC}"
