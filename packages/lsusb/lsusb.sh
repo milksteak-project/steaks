@@ -12,7 +12,7 @@ REL_LIBUSB=https://github.com/libusb/libusb/releases/download/v$VER/$TAR_LIBUSB
 DOWNLOAD_FOLDER=$HOME/usr/tmp
 
 # -- Install dependencies
-#DEPS="pkg-config libusb libftdi wget"
+#DEPS="pkg-config libusb libftdi"
 #brew update
 #brew install --force $DEPS
 #brew unlink $DEPS && brew link --force $DEPS
