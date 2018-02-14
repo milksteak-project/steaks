@@ -1,19 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-
-if [ ! -f $HOME/usr/bin/battery ]; then
-	echo -e "${RED}Package:${NC} battery (not installed)${NC}"
+echo
+if [ ! -f $HOME/usr/bin/battery ] ; then
+	echo -e "Package: battery (not installed)"
 else
-	echo -e "${RED}Package:${GREEN} battery (installed)${NC}"
+	echo -e "Package: battery (installed)"
 fi
-echo -e "${RED}Version:${NC} Not applicable${NC}"
-echo -e "${RED}Homepage:${NC} https://github.com/Code-Hex/battery${NC}"
-
-echo -e "${RED}Description:${NC}"
-echo -e "${NC}Draw battery unicode art on your tmux sessions or the terminal.${NC}"
-
-echo -e "${RED}Dependencies:"
-echo -e "${NC}None${NC}"
+echo -e "Version: Not applicable"
+echo -e "Homepage: https://github.com/Code-Hex/battery"
+echo -e "Description: Draw battery unicode art on your tmux sessions or the terminal."
+echo -e "Dependencies: golang"
+echo

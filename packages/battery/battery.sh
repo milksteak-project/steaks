@@ -1,44 +1,34 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# -- Install dependencies
+TMPDIR="$HOME/usr/tmp"
+PACKAGE="battery"
 DEPS="golang"
 
-if [ ! -f /usr/local/bin/go ]; then
-	echo -e "${RED}>>>>>>>>${NC} battery-v0.2.0 depends on the following packages:${NC}"
-	echo -e "${RED}> ${NC}golang (not installed)${NC}"
-	while true
-	do
-	  read -r -p "Would you like to install these dependencies now? (y/n) " choice
-	    case "$choice" in
-	      n|N)	break;;
-	      y|Y)	brew install golang
-	      		break;;
-	      *)	echo -e "Invalid argument.";;
-		esac
-	done
-else
-	echo -e "${RED}>>>>>>>>${NC} battery-v0.2.0 depends on the following packages:${NC}"
-	echo -e "${GREEN}> golang (installed)${NC}"
-	sleep 1
-fi
+# -- Install dependencies
+function install_dependencies() {
+	brew install golang
+}
+echo -e ">>>>> Installing dependencies..."
+install_dependencies &> /dev/null
 
-# -- Install battery
-mkdir $HOME/usr/tmp/battery
-export GOPATH=$HOME/usr/tmp/battery
-echo -e "${RED}>>>>>>>> ${NC}Installing battery-v0.2.0{NC}"
-go get -u github.com/Code-Hex/battery/cmd/battery
-sleep 1
-mv $HOME/usr/tmp/battery/bin/battery $HOME/usr/bin/battery
-sleep 1
-echo -e "${GREEN}Done!${NC}"
-sleep 1
-echo -e "${NC}battery-v0.2.0 has been installed to:${NC}"
-sleep 1
-echo -e "${GREEN}> $HOME/usr/bin/battery${NC}"
-sleep 1
+# -- Install package
+function install_package() {
+	mkdir $TMPDIR/$PACKAGE
+	export GOPATH=$TMPDIR/$PACKAGE
+	go get -u github.com/Code-Hex/battery/cmd/battery
+	mv $TMPDIR/$PACKAGE/bin/$PACKAGE $HOME/usr/bin/$PACKAGE
+}
+echo -e ">>>>> Fetching sources..."
+echo -e ">>>>> Installing package..."
+install_package &> /dev/null
 
 # -- Cleanup
-rm -rf $HOME/usr/tmp/battery
+function cleanup() {
+	cd $TMPDIR
+	rm -rf $PACKAGE
+}
+echo -e ">>>>> Cleaning up..."
+cleanup &> /dev/null
 
-printf '\e[1;31m%*s\e[m' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
-echo -e "${NC}"
+echo -e "$PACKAGE has been successfully installed!"
+echo

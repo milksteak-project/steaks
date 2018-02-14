@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # -- Uninstall
-echo -e ">>>>> Uninstalling dsniff"
+echo -e ">>>>> Uninstalling dsniff..."
 rm $HOME/usr/sbin/arpspoof
 rm $HOME/usr/sbin/dnsspoof
 rm $HOME/usr/sbin/dsniff

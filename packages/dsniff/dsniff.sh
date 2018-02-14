@@ -4,10 +4,9 @@ TMPDIR="$HOME/usr/tmp"
 
 PACKAGE="dsniff"
 VERSION="2.4b1-darwin_x86_64"
-
-LINK="https://github.com/sigma-1/$PACKAGE/archive/$VERSION.tar.gz"
-SOURCE="$PACKAGE-$VERSION"
-TARBALL="$SOURCE.tar.gz"
+SOURCE="${PACKAGE}-${VERSION}"
+TARBALL="${SOURCE}.tar.gz"
+LINK="https://github.com/sigma-1/${PACKAGE}/archive/${VERSION}.tar.gz"
 
 DEPS="libnet libnids libpcap openssl"
 
@@ -21,6 +20,7 @@ function install_dependencies() {
 echo -e ">>>>> Installing dependencies..."
 install_dependencies &> /dev/null
 
+# -- Fetch source
 function fetch_package() {
 	# -- Fetch source tarball
 	test -e $TARBALL || wget -O $TMPDIR/$TARBALL $LINK -q --show-progress
@@ -30,6 +30,7 @@ function fetch_package() {
 echo -e ">>>>> Fetching sources..."
 fetch_package &> /dev/null
 
+# -- Install package
 function install_package() {
 	cd $TMPDIR/$SOURCE
 	./configure $FLAGS $PREFIX
@@ -38,6 +39,7 @@ function install_package() {
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
 
+# -- Cleanup
 function cleanup() {
 	cd $TMPDIR
 	rm $TARBALL
@@ -47,3 +49,4 @@ echo -e ">>>>> Cleaning up..."
 cleanup &> /dev/null
 
 echo -e "$PACKAGE has been successfully installed!"
+echo

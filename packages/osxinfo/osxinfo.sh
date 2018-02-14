@@ -1,53 +1,43 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+TMPDIR="$HOME/usr/tmp"
 
-OSXI="osxinfo"
-ZIP_OSXI=$OSXI-master.zip
-DOWNLOAD_FOLDER=$HOME/usr/tmp
+PACKAGE="osxinfo"
+VERSION="master"
+SOURCE="${PACKAGE}-${VERSION}"
+ZIP="${SOURCE}.zip"
+LINK="https://github.com/sigma-1/${PACKAGE}/archive/${VERSION}.zip"
 
-# -- Check and download the release
-echo -e "${RED}>>>>>>>> ${NC}Downloading $ZIP_OSXI${NC}"
-wget -O $DOWNLOAD_FOLDER/$ZIP_OSXI https://github.com/sigma-1/osxinfo/archive/master.zip -q --show-progress
-echo -e "${NC}$ZIP_OSXI has been downloaded to:${NC}"
-sleep 1
-echo -e "${GREEN}> $DOWNLOAD_FOLDER/$ZIP_OSXI${NC}"
-sleep 1
+# -- Install dependencies (noop)
+echo -e ">>>>> Installing dependencies..."
 
-# -- Unpack the release
-echo -e "${RED}>>>>>>>> ${NC}Unpacking $ZIP_OSXI${NC}"
-cd $DOWNLOAD_FOLDER
-unzip -o $ZIP_OSXI | pv -l >/dev/null
-echo -e "${NC}$ZIP_OSXI has been unpacked to:${NC}"
-sleep 1
-echo -e "${GREEN}> $DOWNLOAD_FOLDER/$OSXI-master${NC}"
-sleep 1
+# -- Fetch source
+function fetch_package() {
+	# -- Fetch source ZIP
+	test -e $ZIP || wget -O $TMPDIR/$ZIP $LINK -q --show-progress
+	# -- Unpack ZIP
+	cd $TMPDIR ; unzip -o $ZIP | pv -l >/dev/null
+}
+echo -e ">>>>> Fetching sources..."
+fetch_package &> /dev/null
 
-# -- Build osxinfo
-echo -e "${RED}>>>>>>>> ${NC}Building $OSXI${NC}"
-cd $DOWNLOAD_FOLDER/$OSXI-master
-make
-sleep 1
-echo -e "${GREEN}Done!${NC}"
-sleep 1
-
-# -- Install
-echo -e "${RED}>>>>>>>> ${NC}Installing $OSXI${NC}"
-cp $OSXI $HOME/usr/bin/$OSXI
-sleep 1
-echo -e "${GREEN}Done!${NC}"
-sleep 1
-echo -e "${NC}$OSXI has been installed to:${NC}"
-sleep 1
-echo -e "${GREEN}> $HOME/usr/bin/$OSXI${NC}"
-sleep 1
+# -- Install package
+function install_package() {
+	cd $TMPDIR/$SOURCE
+	make
+	mv $PACKAGE $HOME/usr/bin/$PACKAGE
+}
+echo -e ">>>>> Installing package..."
+install_package &> /dev/null
 
 # -- Cleanup
-cd $DOWNLOAD_FOLDER
-rm $ZIP_OSXI
-rm -rf $OSXI-master
+function cleanup() {
+	cd $TMPDIR
+	rm $ZIP
+	rm -rf $SOURCE
+}
+echo -e ">>>>> Cleaning up..."
+cleanup &> /dev/null
 
-printf '\e[1;31m%*s\e[m' "${COLUMNS:-$(tput cols)}" '' | tr ' ' =
-echo -e "${NC}"
+echo -e "$PACKAGE has been successfully installed!"
+echo

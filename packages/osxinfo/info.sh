@@ -1,20 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-
+echo
 if [ ! -f $HOME/usr/bin/osxinfo ]; then
-	echo -e "${RED}Package:${NC} osxinfo (not installed)${NC}"
+	echo -e "Package: osxinfo (not installed)"
 else
-	echo -e "${RED}Package:${GREEN} osxinfo (installed)${NC}"
+	echo -e "Package: osxinfo (installed)"
 fi
-echo -e "${RED}Version:${NC} Not applicable${NC}"
-echo -e "${RED}Homepage:${NC} https://github.com/nbyouri/osxinfo${NC}"
-echo -e "${RED}Fork:${NC}     https://github.com/sigma-1/osxinfo${NC}"
-
-echo -e "${RED}Description:${NC}"
-echo -e "${NC}A fast info program written in C.${NC}"
-
-echo -e "${RED}Dependencies:"
-echo -e "${NC}None${NC}"
+echo -e "Version: Not applicable"
+echo -e "Homepage: https://github.com/nbyouri/osxinfo, https://github.com/sigma-1/osxinfo"
+echo -e "Description: A fast info program written in C."
+echo -e "Dependencies: None"
+echo

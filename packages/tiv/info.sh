@@ -1,19 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-
+echo
 if [ ! -f $HOME/usr/bin/tiv ]; then
-	echo -e "${RED}Package:${NC} tiv (not installed)${NC}"
+	echo -e "Package: tiv (not installed)"
 else
-	echo -e "${RED}Package:${GREEN} tiv (installed)${NC}"
+	echo -e "Package: tiv (installed)"
 fi
-echo -e "${RED}Version:${NC} Not applicable${NC}"
-echo -e "${RED}Homepage:${NC} https://github.com/stefanhaustein/TerminalImageViewer${NC}"
-
-echo -e "${RED}Description:${NC}"
-echo -e "${NC}TerminalImageViewer (tiv) is a small C++ program to display images in a terminal using RGB ANSI codes and unicode block graphic characters.${NC}"
-
-echo -e "${RED}Dependencies:"
-echo -e "${NC}None${NC}"
+echo -e "Version: Not applicable"
+echo -e "Homepage: https://github.com/stefanhaustein/TerminalImageViewer"
+echo -e "Description: TerminalImageViewer (tiv) is a small C++ program to display images in a terminal using RGB ANSI codes and unicode block graphic characters."
+echo -e "Dependencies: None"
+echo
