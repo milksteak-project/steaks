@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/apktool ] ; then
+if [ ! -d $HOME/usr/etc/packages/apktool ] ; then
 	echo -e "Package: apktool (not installed)"
 else
 	echo -e "Package: apktool (installed)"

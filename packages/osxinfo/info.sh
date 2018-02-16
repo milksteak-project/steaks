@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/osxinfo ]; then
+if [ ! -d $HOME/usr/etc/packages/osxinfo ]; then
 	echo -e "Package: osxinfo (not installed)"
 else
 	echo -e "Package: osxinfo (installed)"

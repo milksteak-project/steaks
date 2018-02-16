@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/sbin/dsniff ] ; then
+if [ ! -d $HOME/usr/etc/packages/dsniff ] ; then
 	echo -e "Package: dsniff (not installed)"
 else
 	echo -e "Package: dsniff (installed)"

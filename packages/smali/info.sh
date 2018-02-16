@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/smali ] ; then
+if [ ! -d $HOME/usr/etc/packages/smali ] ; then
 	echo -e "Package: smali (not installed)"
 else
 	echo -e "Package: smali (installed)"

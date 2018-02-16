@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/lib/libpci.a ] ; then
+if [ ! -d $HOME/usr/etc/packages/pciutils ] ; then
 	echo -e "Package: pciutils (not installed)"
 else
 	echo -e "Package: pciutils (installed)"

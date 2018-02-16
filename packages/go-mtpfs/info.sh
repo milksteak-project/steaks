@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/go-mtpfs ] ; then
+if [ ! -d $HOME/usr/etc/packages/go-mtpfs ] ; then
 	echo -e "Package: go-mtpfs (not installed)"
 else
 	echo -e "Package: go-mtpfs (installed)"

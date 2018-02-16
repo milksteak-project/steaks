@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/asbasic ] ; then
+if [ ! -d $HOME/usr/etc/packages/asbasic ] ; then
 	echo -e "Package: asbasic (not installed)"
 else
 	echo -e "Package: asbasic (installed)"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/lsftdi ]; then
+if [ ! -d $HOME/usr/etc/packages/lsftdi ]; then
 	echo -e "Package: lsftdi (not installed)"
 else
 	echo -e "Package: lsftdi"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/tiv ]; then
+if [ ! -d $HOME/usr/etc/packages/tiv ]; then
 	echo -e "Package: tiv (not installed)"
 else
 	echo -e "Package: tiv (installed)"

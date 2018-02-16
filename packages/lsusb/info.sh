@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/lsusb ] ; then
+if [ ! -d $HOME/usr/etc/packages/lsusb ] ; then
 	echo -e "Package: lsusb (not installed)"
 else
 	echo -e "Package: lsusb (installed)"

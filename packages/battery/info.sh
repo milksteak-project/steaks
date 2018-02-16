@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo
-if [ ! -f $HOME/usr/bin/battery ] ; then
+if [ ! -d $HOME/usr/etc/packages/battery ] ; then
 	echo -e "Package: battery (not installed)"
 else
 	echo -e "Package: battery (installed)"
