@@ -43,7 +43,7 @@ function install_package() {
 
 	$CC -o lsftdi find_all.c -lftdi1 -lusb-1.0 -I../src
 
-	mv $PACKAGE $HOME/usr/bin/$PACKAGE
+	mv $PACKAGE $HOME/usr/sbin/$PACKAGE
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
