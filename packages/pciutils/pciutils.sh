@@ -6,7 +6,7 @@ PACKAGE="pciutils"
 VERSION="milksteak" # 3.5.6
 SOURCE="${PACKAGE}-${VERSION}"
 ZIP="${SOURCE}.zip"
-LINK="https://github.com/sigma-1/${PACKAGE}/archive/${VERSION}.tar.gz"
+LINK="https://github.com/sigma-1/${PACKAGE}/archive/${VERSION}.zip"
 
 DEPS="directhw"
 
