@@ -47,4 +47,3 @@ echo -e ">>>>> Cleaning up..."
 cleanup &> /dev/null
 
 echo -e "$PACKAGE has been successfully installed!"
-echo

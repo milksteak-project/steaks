@@ -58,4 +58,3 @@ install_package &> /dev/null
 echo -e ">>>>> Cleaning up..."
 
 echo -e "$PACKAGE1 has been successfully installed!"
-echo

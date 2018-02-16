@@ -13,4 +13,3 @@ rm $HOME/usr/share/man/man8/vpddecode.8
 rm -rf $HOME/usr/share/doc/dmidecode
 rm -rf $HOME/usr/etc/packages/dmidecode
 echo -e "dmidecode has been successfully uninstalled!"
-echo

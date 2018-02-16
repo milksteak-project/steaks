@@ -8,4 +8,3 @@ rm $HOME/usr/sbin/directhw
 rm -rf $HOME/usr/opt/DirectHW
 rm -rf $HOME/usr/etc/packages/directhw
 echo -e "directhw has been successfully uninstalled!"
-echo

@@ -18,4 +18,3 @@ rm $HOME/usr/share/man/man8/update-pciids.8
 rm -rf $HOME/usr/include/pci
 rm -rf $HOME/usr/etc/packages/pciutils
 echo -e "pciutils has been successfully uninstalled!"
-echo

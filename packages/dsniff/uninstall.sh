@@ -32,4 +32,3 @@ rm $HOME/usr/share/man/man8/webspy.8
 rm -rf $HOME/usr/share/dsniff
 rm -rf $HOME/usr/etc/packages/dsniff
 echo -e "dsniff has been successfully uninstalled!"
-echo

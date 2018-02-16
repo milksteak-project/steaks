@@ -46,4 +46,3 @@ echo -e ">>>>> Cleaning up..."
 cleanup &> /dev/null
 
 echo -e "tiv has been successfully installed!"
-echo
