@@ -5,18 +5,18 @@ PACKAGE="battery"
 DEPS="golang"
 
 # -- Install dependencies
-function install_dependencies() {
-	brew install golang
-}
+#function install_dependencies() {
+#	brew install golang 
+#}
 echo -e ">>>>> Installing dependencies..."
-install_dependencies &> /dev/null
+#install_dependencies &> /dev/null
 
 # -- Install package
 function install_package() {
 	mkdir $TMPDIR/$PACKAGE
 	export GOPATH=$TMPDIR/$PACKAGE
 	go get -u github.com/Code-Hex/battery/cmd/battery
-	mv $TMPDIR/$PACKAGE/bin/$PACKAGE $HOME/usr/bin/$PACKAGE
+	mv $TMPDIR/$PACKAGE/bin/$PACKAGE $HOME/usr/bin/go-$PACKAGE
 }
 echo -e ">>>>> Fetching sources..."
 echo -e ">>>>> Installing package..."
@@ -30,4 +30,4 @@ function cleanup() {
 echo -e ">>>>> Cleaning up..."
 cleanup &> /dev/null
 
-echo -e "$PACKAGE has been successfully installed!"
+echo -e "go-$PACKAGE has been successfully installed!"

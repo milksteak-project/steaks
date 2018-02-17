@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-if [ ! -d $HOME/usr/etc/packages/battery ] ; then
-	echo -e "Package: battery (not installed)"
+if [ ! -d $HOME/usr/etc/packages/go-battery ] ; then
+	echo -e "Package: go-battery (not installed)"
 else
-	echo -e "Package: battery (installed)"
+	echo -e "Package: go-battery (installed)"
 fi
 echo
 echo -e "Version: Not applicable"
