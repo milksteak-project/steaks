@@ -40,6 +40,7 @@ function install_package() {
 
 	cp libDirectHW.a $HOME/usr/opt/DirectHW/lib/libDirectHW.a
 	cp libDirectHW.dylib $HOME/usr/opt/DirectHW/lib/libDirectHW.dylib
+	ln -s $HOME/usr/opt/DirectHW/lib/libDirectHW.a $HOME/usr/lib/libDirectHW.a
 	ln -s $HOME/usr/opt/DirectHW/lib/libDirectHW.dylib $HOME/usr/lib/libDirectHW.dylib
 
 	cp -r build/Release/DirectHW.framework $HOME/usr/opt/DirectHW/Frameworks/DirectHW.framework
