@@ -24,6 +24,8 @@ function fetch_package() {
 	test -e $TARBALL || wget -O $TMPDIR/$TARBALL $LINK -q --show-progress
 	# -- Unpack tarball
 	cd $TMPDIR ; pv $TARBALL | tar xpj
+	# -- Fetch manpage
+	wget -O $TMPDIR/lsusb.8 https://raw.githubusercontent.com/milksteak-project/steaks/master/packages/lsusb/man/lsusb.8 -q --show-progress
 }
 echo -e ">>>>> Fetching sources..."
 fetch_package &> /dev/null
@@ -44,6 +46,8 @@ function install_package() {
 	$CC -o lsusb listdevs.c -lusb-1.0 -I../libusb
 
 	mv $PACKAGE $HOME/usr/sbin/$PACKAGE
+	mkdir -p $HOME/usr/share/man/man8
+	mv $TMPDIR/lsusb.8 $HOME/usr/share/man/man8/lsusb.8
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
