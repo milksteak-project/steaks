@@ -8,7 +8,7 @@ SOURCE="${PACKAGE}-${VERSION}"
 TARBALL="${SOURCE}.tar.gz"
 LINK="https://github.com/sigma-1/${PACKAGE}/archive/v${VERSION}.tar.gz"
 
-PREFIX="--prefix=$HOME/usr --datarootdir=$HOME/usr/share --mandir=$HOME/usr/share/man"
+PREFIX="--prefix=$HOME/usr"
 
 # -- Install dependencies (noop)
 echo -e ">>>>> Installing dependencies..."
@@ -27,7 +27,7 @@ fetch_package &> /dev/null
 function install_package() {
 	cd $TMPDIR/$SOURCE
 	./configure $PREFIX
-	make ; mv $PACKAGE $HOME/usr/bin/$PACKAGE
+	make ; make install prefix=$HOME/usr
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
