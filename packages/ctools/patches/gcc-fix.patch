@@ -1,0 +1,40 @@
+From f9c41bed64ebf818cfba8dad497451c16b034abe Mon Sep 17 00:00:00 2001
+From: Henri Manson <hfmanson@gmail.com>
+Date: Tue, 4 Aug 2015 23:29:23 +0200
+Subject: [PATCH] small fix to compile under g++ 4.8
+
+---
+ src/Makefile | 2 +-
+ src/tools.cc | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Makefile b/src/Makefile
+index 1738bab..6ed3386 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -4,11 +4,11 @@
+ 
+ VERSION=0.4
+ 
++CC=g++
+ CXX=g++
+ #CXXFLAGS=-g -pedantic -Wall
+ CXXFLAGS=-O -Wall
+ CPPFLAGS=-DVERSION=\"V$(VERSION)\"
+-LDFLAGS=-lstdc++
+ 
+ CMDS = d64dump biosdump cformat ctools
+ 
+diff --git a/src/tools.cc b/src/tools.cc
+index a50d7ea..b4d4e7e 100644
+--- a/src/tools.cc
++++ b/src/tools.cc
+@@ -259,7 +259,7 @@ cpm_filename(const char filename[])
+ 	char *s, *t, *dot;
+ 
+ 	// take basename
+-	t = strrchr(filename, '/');
++	t = strrchr((char *) filename, '/');
+ 	if (t != NULL)
+ 		filename = t + 1;
+ 	s = strdup(filename);

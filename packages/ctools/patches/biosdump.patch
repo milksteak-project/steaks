@@ -1,0 +1,109 @@
+From 581d55d372913a04fef951aeb6f1515b8499c034 Mon Sep 17 00:00:00 2001
+From: Vidir Alexander Jonsson <valex@valex.is>
+Date: Sat, 17 Feb 2018 06:02:45 +0000
+Subject: [PATCH 1/1] biosdump
+
+---
+ doc/{biosdump.1 => cbiosdump.1}   | 0
+ doc/cformat.1                     | 2 +-
+ doc/ctools.1                      | 2 +-
+ doc/d64.5                         | 2 +-
+ doc/d64dump.1                     | 2 +-
+ src/Makefile                      | 6 +++---
+ src/{biosdump.cc => cbiosdump.cc} | 0
+ 7 files changed, 7 insertions(+), 7 deletions(-)
+ rename doc/{biosdump.1 => cbiosdump.1} (100%)
+ rename src/{biosdump.cc => cbiosdump.cc} (100%)
+
+diff --git a/doc/biosdump.1 b/doc/cbiosdump.1
+similarity index 100%
+rename from doc/biosdump.1
+rename to doc/cbiosdump.1
+diff --git a/doc/cformat.1 b/doc/cformat.1
+index 67df70e..3fc4cf1 100644
+--- a/doc/cformat.1
++++ b/doc/cformat.1
+@@ -44,7 +44,7 @@ create a double sided c128 disk image.
+ print a help message on standard output and exit successfully.
+ .SH "SEE ALSO"
+ .BR d64dump (1),
+-.BR biosdump (1),
++.BR cbiosdump (1),
+ .BR ctools (1),
+ .BR d64 (5)
+ .SH AUTHOR
+diff --git a/doc/ctools.1 b/doc/ctools.1
+index 6975c61..cbf8c81 100644
+--- a/doc/ctools.1
++++ b/doc/ctools.1
+@@ -131,7 +131,7 @@ output each file matching
+ undelete deleted files.
+ .SH "SEE ALSO"
+ .BR d64dump (1),
+-.BR biosdump (1),
++.BR cbiosdump (1),
+ .BR cformat (1),
+ .BR d64 (5)
+ .SH AUTHOR
+diff --git a/doc/d64.5 b/doc/d64.5
+index fb9e81e..516a643 100644
+--- a/doc/d64.5
++++ b/doc/d64.5
+@@ -34,7 +34,7 @@ You have to transfer the whole disk to use it with
+ .BR ctools (1).
+ .SH "SEE ALSO"
+ .BR d64dump (1),
+-.BR biosdump (1),
++.BR cbiosdump (1),
+ .BR cformat (1),
+ .BR ctools (1),
+ .SH AUTHOR
+diff --git a/doc/d64dump.1 b/doc/d64dump.1
+index ae8a737..b813b28 100644
+--- a/doc/d64dump.1
++++ b/doc/d64dump.1
+@@ -44,7 +44,7 @@ of the last sector.
+ .BR \-h ", " \-\-help
+ print a help message on standard output and exit successfully.
+ .SH "SEE ALSO"
+-.BR biosdump (1),
++.BR cbiosdump (1),
+ .BR cformat (1),
+ .BR ctools (1),
+ .BR d64 (5)
+diff --git a/src/Makefile b/src/Makefile
+index 1738bab..95e087b 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -10,7 +10,7 @@ CXXFLAGS=-O -Wall
+ CPPFLAGS=-DVERSION=\"V$(VERSION)\"
+ LDFLAGS=-lstdc++
+ 
+-CMDS = d64dump biosdump cformat ctools
++CMDS = d64dump cbiosdump cformat ctools
+ 
+ .PHONY: all install clean
+ 
+@@ -24,13 +24,13 @@ clean:
+ 	-rm -f *.o core $(CMDS)
+ 
+ d64dump:  dump.o misc.o err.o d64.o d64dump.o 
+-biosdump: dump.o misc.o err.o d64.o bios.o biosdump.o
++cbiosdump: dump.o misc.o err.o d64.o bios.o cbiosdump.o
+ cformat:  err.o misc.o d64.o bios.o cformat.o 
+ ctools:   dump.o err.o misc.o d64.o bios.o bitstr.o fcb.o dir.o \
+            file.o tools.o ctools.o
+ 
+ bios.o: bios.cc err.h bios.h global.h d64.h
+-biosdump.o: biosdump.cc err.h bios.h global.h d64.h dump.h
++cbiosdump.o: cbiosdump.cc err.h bios.h global.h d64.h dump.h
+ bitstr.o: bitstr.cc bitstr.h
+ cformat.o: cformat.cc global.h misc.h err.h d64.h bios.h
+ ctools.o: ctools.cc err.h fcb.h global.h tools.h
+diff --git a/src/biosdump.cc b/src/cbiosdump.cc
+similarity index 100%
+rename from src/biosdump.cc
+rename to src/cbiosdump.cc
+-- 
+2.16.1
+
