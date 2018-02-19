@@ -11,6 +11,22 @@ LINK="https://github.com/${PKGLIB}/${PKGLIB}/releases/download/v${VERSION}/${TAR
 
 DEPS="pkg-config libusb libftdi"
 
+
+echo -e "Note: The lsusb package is deprecated."
+echo -e "It is recommended that you install the usbutils package instead."
+
+# -- Conflicts
+if [ -d $HOME/usr/etc/packages/lsusb ];then
+	echo -e "This package conflicts with the following package:"
+	echo -e "> usbutils"
+	echo
+	echo -e "Uninstall the conflicting package and try again."
+	echo -e "Abort."
+	exit 0
+else
+	:
+fi
+
 # -- Install dependencies
 function install_dependencies() {
 	brew install $DEPS
@@ -44,10 +60,7 @@ function install_package() {
 	fi
 
 	$CC -o lsusb listdevs.c -lusb-1.0 -I../libusb
-
-	mv $PACKAGE $HOME/usr/sbin/$PACKAGE
-	mkdir -p $HOME/usr/share/man/man8
-	mv $TMPDIR/lsusb.8 $HOME/usr/share/man/man8/lsusb.8
+	mv $PACKAGE $HOME/usr/sbin/${PACKAGE}1.0
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
