@@ -54,7 +54,7 @@ function install_package() {
 	fi
 
 	$CC -o lsusb listdevs.c -lusb-1.0 -I../libusb
-	mv $PACKAGE $HOME/usr/sbin/${PACKAGE}1.0
+	mv $PACKAGE $HOME/usr/sbin/${PACKAGE}1
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null

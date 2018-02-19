@@ -7,13 +7,11 @@ VERSION="master" #4.14-dirty
 SOURCE="${PACKAGE}-${VERSION}"
 ZIP="${SOURCE}.zip"
 LINK="https://github.com/sigma-1/${PACKAGE}/archive/${VERSION}.zip"
-BDEPS="pkg-config"
-SDEPS="libnl"
+DEPS="pkg-config"
 
 # -- Install dependencies
 function install_dependencies() {
-	brew install $BDEPS
-	steak install $SDEPS
+	brew install $DEPS
 }
 echo -e ">>>>> Installing dependencies..."
 install_dependencies &> /dev/null

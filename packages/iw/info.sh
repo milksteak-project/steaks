@@ -10,7 +10,7 @@ echo -e "Version: 4.14-dirty"
 echo -e "Homepage: http://git.sipsolutions.net/iw.git"
 echo -e "          https://github.com/sigma-1/iw.git"
 echo
-echo -e "Dependencies: None"
+echo -e "Dependencies: libnl headers-compat"
 echo
 echo -e "Description: A tool to use nl80211."
 echo -e "Notes: This is a port of iw for Linux. Limited functionality."
