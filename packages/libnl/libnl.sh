@@ -32,6 +32,8 @@ function install_package() {
 	./autogen.sh
 	./configure --prefix=$HOME/usr
 	make ; make install PREFIX=$HOME/usr
+	mkdir -p $HOME/usr/include/linux
+	cp ${TMPDIR}/${SOURCE}/include/linux/. $HOME/usr/include/linux/
 }
 echo -e ">>>>> Installing package..."
 install_package &> /dev/null
