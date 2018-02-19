@@ -17,12 +17,8 @@ echo -e "It is recommended that you install the usbutils package instead."
 
 # -- Conflicts
 if [ -d $HOME/usr/etc/packages/lsusb ];then
-	echo -e "This package conflicts with the following package:"
+	echo -e "Warning: This package may conflict with the following package:"
 	echo -e "> usbutils"
-	echo
-	echo -e "Uninstall the conflicting package and try again."
-	echo -e "Abort."
-	exit 0
 else
 	:
 fi
@@ -40,8 +36,6 @@ function fetch_package() {
 	test -e $TARBALL || wget -O $TMPDIR/$TARBALL $LINK -q --show-progress
 	# -- Unpack tarball
 	cd $TMPDIR ; pv $TARBALL | tar xpj
-	# -- Fetch manpage
-	wget -O $TMPDIR/lsusb.8 https://raw.githubusercontent.com/milksteak-project/steaks/master/packages/lsusb/man/lsusb.8 -q --show-progress
 }
 echo -e ">>>>> Fetching sources..."
 fetch_package &> /dev/null

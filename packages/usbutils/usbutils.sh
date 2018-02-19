@@ -11,12 +11,8 @@ DEPS="libusb"
 
 # -- Conflicts
 if [ -d $HOME/usr/etc/packages/lsusb ];then
-	echo -e "This package conflicts with the following package:"
+	echo -e "This package may conflict with the following package:"
 	echo -e "> lsusb"
-	echo
-	echo -e "Uninstall the conflicting package and try again."
-	echo -e "Abort."
-	exit 0
 else
 	:
 fi
